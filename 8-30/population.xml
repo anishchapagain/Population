@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.1.6
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Aug 31, 2014 at 03:25 AM
+- Server version: 5.5.8
+- PHP Version: 5.3.5
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="population" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="age">
+                CREATE TABLE `age` (
+                  `ageId` int(6) NOT NULL AUTO_INCREMENT,
+                  `agegroup` varchar(32) NOT NULL,
+                  PRIMARY KEY (`ageId`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="city">
+                CREATE TABLE `city` (
+                  `cityId` int(6) NOT NULL AUTO_INCREMENT,
+                  `countryId` int(6) NOT NULL,
+                  `cityname` varchar(32) NOT NULL,
+                  PRIMARY KEY (`cityId`),
+                  UNIQUE KEY `cityId` (`cityId`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="country">
+                CREATE TABLE `country` (
+                  `countryId` int(11) NOT NULL AUTO_INCREMENT,
+                  `countryname` varchar(32) NOT NULL,
+                  PRIMARY KEY (`countryId`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="population">
+                CREATE TABLE `population` (
+                  `pId` int(6) NOT NULL AUTO_INCREMENT,
+                  `male` int(255) NOT NULL,
+                  `female` int(255) NOT NULL,
+                  `cityId` int(6) NOT NULL,
+                  `ageId` int(6) NOT NULL,
+                  PRIMARY KEY (`pId`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="user">
+                CREATE TABLE `user` (
+                  `userId` int(6) NOT NULL AUTO_INCREMENT,
+                  `username` varchar(10) NOT NULL,
+                  `password` varchar(32) NOT NULL,
+                  PRIMARY KEY (`userId`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'population'
+    -->
+    <database name="population">
+        <!-- Table age -->
+        <table name="age">
+            <column name="ageId">1</column>
+            <column name="agegroup">young</column>
+        </table>
+        <table name="age">
+            <column name="ageId">2</column>
+            <column name="agegroup">middle</column>
+        </table>
+        <table name="age">
+            <column name="ageId">3</column>
+            <column name="agegroup">old</column>
+        </table>
+        <!-- Table city -->
+        <table name="city">
+            <column name="cityId">1</column>
+            <column name="countryId">2</column>
+            <column name="cityname">kathmandu</column>
+        </table>
+        <table name="city">
+            <column name="cityId">2</column>
+            <column name="countryId">3</column>
+            <column name="cityname">delhi</column>
+        </table>
+        <table name="city">
+            <column name="cityId">3</column>
+            <column name="countryId">2</column>
+            <column name="cityname">pokhara</column>
+        </table>
+        <table name="city">
+            <column name="cityId">4</column>
+            <column name="countryId">2</column>
+            <column name="cityname">biratnagar</column>
+        </table>
+        <!-- Table country -->
+        <table name="country">
+            <column name="countryId">2</column>
+            <column name="countryname">nepal</column>
+        </table>
+        <table name="country">
+            <column name="countryId">3</column>
+            <column name="countryname">india</column>
+        </table>
+        <table name="country">
+            <column name="countryId">7</column>
+            <column name="countryname">usa</column>
+        </table>
+        <table name="country">
+            <column name="countryId">8</column>
+            <column name="countryname">uk</column>
+        </table>
+        <!-- Table population -->
+        <table name="population">
+            <column name="pId">1</column>
+            <column name="male">2000</column>
+            <column name="female">1800</column>
+            <column name="cityId">1</column>
+            <column name="ageId">1</column>
+        </table>
+        <table name="population">
+            <column name="pId">2</column>
+            <column name="male">20010</column>
+            <column name="female">1200</column>
+            <column name="cityId">4</column>
+            <column name="ageId">1</column>
+        </table>
+        <!-- Table user -->
+        <table name="user">
+            <column name="userId">1</column>
+            <column name="username">admin</column>
+            <column name="password">admin</column>
+        </table>
+    </database>
+</pma_xml_export>

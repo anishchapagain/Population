@@ -1,0 +1,45 @@
+1. Add User, Country, City, Age Group, Population (country,city,agegroup,male,female)
+2. Display: 3largest population, Filter(Country-sum of population, City-sum of Population, Age Group- sum of population)
+3. Display list of country added and countries. (validate if exists already)
+4. Display list of city added and cities  (validate if exists already)
+5. Display list of group added and groups (validate if exists already)
+
+
+Table:
+user: userid,username,password
+country: countryid, country
+city: cityid,countryid,cityname
+age: ageid,agegroup
+population: populationid,male,female, countryid,cityid,ageid
+
+SQL
+select * from population p left join city ct on ct.cityId=p.cityId
+left join country c on c.countryId=ct.cityId
+where c.countryId=2
+
+select sum(male+female) as Total from population
+
+select p.male,p.female,a.ageId,a.agegroup,c.cityname from population p 
+left join city c on c.cityId=p.cityId
+left join age a on a.ageId=p.ageId
+where p.cityId=1 and p.ageId=1
+
+SELECT male, female, male + female AS total
+FROM population
+ORDER BY total DESC limit 3
+
+
+SELECT p.male, p.female, p.male + p.female AS total,c.countryname,ct.cityname,a.agegroup FROM population p
+left join city ct on ct.cityId=p.cityId
+left join country c on c.countryId=ct.countryId
+left join age a on a.ageId=p.ageId
+ORDER BY total DESC limit 3
+
+select p.male from population p
+left join city ct on ct.cityId=p.cityId
+left join country c on c.countryId=ct.countryId 
+
+$sql = "select sum(p.male),sum(p.female),c.countryname from population p "
+    . "left join city ct on ct.cityId=p.cityId "
+    . "left join country c on c.countryId=ct.countryId "
+    . "group by c.countryname";

@@ -174,5 +174,18 @@ class Population {
             $result = false;
         }
     }
+    
+    //Total Population:Male,female    
+    public function totalCountryPopulation() {
+        $sql = "select sum(p.male)+sum(p.female) as 'total',sum(p.male) as 'male',sum(p.female) as 'female' from population p "
+                . "left join city ct on ct.cityId=p.cityId "
+                . "left join country c on c.countryId=ct.countryId ";             
+        $result = $this->link->db->query($sql);
+        if ($result->num_rows > 0) {
+            return $result;
+        } else {
+            $result = false;
+        }
+    }
 
 }

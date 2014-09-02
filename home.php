@@ -214,8 +214,8 @@ $error_message = '';
         <fieldset>
             <legend> Total Population Details </legend>
             <table class="table">
-                <tr><?php foreach ($total_field as $val) { ?> <th><?php echo ucfirst($val->name); ?> </th><?php } ?></tr>
-                <?php while ($row = $total->fetch_assoc()) { ?>
+                <tr><?php foreach ($total_fieldP as $val) { ?> <th><?php echo ucfirst($val->name); ?> </th><?php } ?></tr>
+                <?php while ($row = $totalP->fetch_assoc()) { ?>
                     <tr>
                         <td><?php echo ucfirst($row['countryname']); ?></td> 
                         <td><?php echo $row['total']; ?></td>
@@ -223,9 +223,9 @@ $error_message = '';
                         <td><?php echo $row['female']; ?></td>                   
                     </tr>
                 <?php } ?>
-                    <?php while ($row = $totalP->fetch_assoc()) { ?>
+                    <?php while ($row = $total->fetch_assoc()) { ?>
                     <tr>
-                        <td><?php //echo ucfirst($row['countryname']); ?></td> 
+                        <td></td>
                         <td><b><?php echo $row['total']; ?></b></td>
                         <td><b><?php echo $row['male']; ?></b></td>
                         <td><b><?php echo $row['female']; ?></b></td>                   

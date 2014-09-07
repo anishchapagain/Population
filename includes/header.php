@@ -12,6 +12,7 @@ and open the template in the editor.
         <title><?php //echo T_TAG; ?></title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" href="http://localhost/population/css/style.css" />
+        <?php include_once("analyticstracking.php"); ?>
     </head>
     <body>
         <div class="container"> 

@@ -27,3 +27,4 @@ where p.cityId=1 and p.ageId=1
 SELECT male, female, male + female AS total
 FROM population
 ORDER BY total DESC 
+
